@@ -1,11 +1,18 @@
 {
-  "name": "XZ_Iverson",
-  "version": "0.0.1",
+  "name": "xzt-tools",
+  "version": "0.0.4",
   "main": "index.js",
   "repository": "https://github.com/baozoudashijian/XZ_Iverson.git",
   "author": "Roger Zhang <zhangrongjie01@dfwsgroup.com>",
   "license": "MIT",
   "dependencies": {
     "commander": "^9.2.0"
-  }
+  },
+  "bin": {
+    "xzt": "./cli.js"
+  },
+  "files": [
+    "./cli.js",
+    "./index.js"
+  ]
 }

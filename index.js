@@ -2,11 +2,12 @@ const fs = require('fs')
 const path = require('path')
 
 function translate(prefix) {
-    fs.readdir(path.join(__dirname, 'img'), (err, data) => {
+    fs.readdir(__dirname, (err, data) => {
         data.forEach((file,index) => {
             const extname = path.extname(file)
             if(['.jpg', '.png'].includes(extname)) {
-                fs.rename(`./img/${file}`, `./img/${prefix + index + extname}`, (err) => {
+                let newFileName = prefix + index + extname
+                fs.rename(`${path.join(__dirname, file)}`, `${path.join(__dirname, newFileName)}`, (err) => {
                     if(err) throw err
                     console.log('Reame complete!')
                 })
