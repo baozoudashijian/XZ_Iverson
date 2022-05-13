@@ -1,8 +1,11 @@
 {
   "name": "XZ_Iverson",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "https://github.com/baozoudashijian/XZ_Iverson.git",
   "author": "Roger Zhang <zhangrongjie01@dfwsgroup.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^9.2.0"
+  }
 }
