@@ -6,7 +6,8 @@
   "author": "Roger Zhang <zhangrongjie01@dfwsgroup.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^9.2.0"
+    "commander": "^9.2.0",
+    "fs-extra": "^10.1.0"
   },
   "bin": {
     "xzt": "./cli.js"
