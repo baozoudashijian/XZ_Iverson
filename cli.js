@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { Command } = require('commander')
 const program = new Command();
-const { translate, initTemplate, rebaseTemplate, replaceAllTemplate } = require('./index')
+const { translate, initTemplate, rebaseTemplate, replaceAllTemplate, restoreAllTemplate } = require('./index')
 
 program
     .name('xz-tools')
@@ -38,6 +38,14 @@ program.command('replaceAll')
   .argument('<string>', 'Project name')
   .action((proNo, tempNo) => {
     replaceAllTemplate(proNo, tempNo)
+  });
+
+program.command('restoreAll')
+  .description('Restore all url')
+  .argument('<string>', 'Template name')
+  .argument('<string>', 'Project name')
+  .action((proNo, tempNo) => {
+    restoreAllTemplate(proNo, tempNo)
   });
 
 program.parse();

@@ -79,6 +79,20 @@ function replaceAllTemplate(proName, dirName) {
     })
 }
 
+function restoreAllTemplate(proName, dirName) {
+    const rpUrl = 'https://f3-xz.veimg.cn/lms/template/' + proName + '/'
+    const proSrc = path.join(process.cwd(), proName, 'index.html')
+
+    fs.readFile(proSrc, (err, data) => {
+        if(err) return
+        let str = data.toString()
+        str = str.replaceAll('./', rpUrl)
+        fs.writeFile(proSrc, str, 'utf8', (err) => {
+            if(err) return
+        })
+    })
+}
+
 function copyFile(src, dest) {
     fse.copy(src, dest, err => {
         if (err) return console.error(err)
@@ -105,6 +119,7 @@ module.exports = {
     translate,
     initTemplate,
     rebaseTemplate,
-    replaceAllTemplate
+    replaceAllTemplate,
+    restoreAllTemplate
 }
 

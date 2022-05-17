@@ -15,7 +15,12 @@ $ npm install -g xzt-tools
 
 ## 环境
 
-需要Nodejs 14+以上, 因为使用replaceAll方法
++ 需要Nodejs 14+以上, 因为使用replaceAll方法
++ 流程不可逆, 例如不可 restore 再 replace
+
+## 开发流程
+
+init -> replaceAll -> rebase -> restoreAll
 
 ## API
 
