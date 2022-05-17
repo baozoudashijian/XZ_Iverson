@@ -2,8 +2,8 @@ const fs = require('fs')
 const fse = require('fs-extra')
 const path = require('path')
 
-console.log(__dirname, '=> dirname')
-console.log(process.cwd(), '=> cwd')
+// console.log(__dirname, '=> dirname')
+// console.log(process.cwd(), '=> cwd')
 function translate(prefix) {
     fs.readdir(process.cwd(), (err, data) => {
         data.forEach((file, index) => {
@@ -65,6 +65,20 @@ function rebaseTemplate(proName, dirName) {
 
 }
 
+function replaceAllTemplate(proName, dirName) {
+    const rpUrl = 'https://f3-xz.veimg.cn/lms/template/' + dirName
+    const proSrc = path.join(process.cwd(), proName, 'index.html')
+
+    fs.readFile(proSrc, (err, data) => {
+        if(err) return
+        let str = data.toString()
+        str = str.replaceAll(rpUrl, '.')
+        fs.writeFile(proSrc, str, 'utf8', (err) => {
+            if(err) return
+        })
+    })
+}
+
 function copyFile(src, dest) {
     fse.copy(src, dest, err => {
         if (err) return console.error(err)
@@ -90,6 +104,7 @@ function rebaseFile(proSrc, proName) {
 module.exports = {
     translate,
     initTemplate,
-    rebaseTemplate
+    rebaseTemplate,
+    replaceAllTemplate
 }
 
