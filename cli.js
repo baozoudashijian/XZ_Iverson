@@ -11,7 +11,7 @@ program
 program
     .argument('<string>', 'translate prefix')
     .action((str) => {
-        // 控制台获取需要翻译的内容
+        // 控制台获取需要重命名的文件夹内容
         translate(str)
     });
 
